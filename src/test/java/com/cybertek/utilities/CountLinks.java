@@ -20,6 +20,7 @@ public class CountLinks {
                 missingCount++;
             } else {
                 hasTextCount++;
+                //no
             }
 
         }
