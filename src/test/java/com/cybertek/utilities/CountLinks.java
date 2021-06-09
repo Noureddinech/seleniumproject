@@ -15,7 +15,7 @@ public class CountLinks {
         int hasTextCount = 0;
         int missingCount = 0;
         for (WebElement each : ListOfLinks) {
-            System.out.println(each.getText());
+
             if (each.getText().isEmpty()) {
                 missingCount++;
             } else {
