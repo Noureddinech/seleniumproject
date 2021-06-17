@@ -8,13 +8,13 @@ import org.openqa.selenium.WebElement;
 import java.util.concurrent.TimeUnit;
 
 public class DriverLogin {
-        String url;
-        String usernameLocator;
-        String passwordLocator;
-        String usernameText;
-        String passwordText;
-        String loginButtonLocator;
-        WebDriver driver;
+    public String url;
+        public String usernameLocator;
+    public String passwordLocator;
+    public String usernameText;
+    public String passwordText;
+    public String loginButtonLocator;
+    public  WebDriver driver;
 
         public void setDriver(int time ){
             driver = WebdriverFactory.getDriver("chrome");

@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -43,20 +45,20 @@ public class TD_Reset {
         BrowserUtils.sleep(2);
 
         //click on grid setting
-      //  WebElement gridSetting = driver.findElement(By.xpath("//i[@class='fa-cog hide-text']"));
-     //   gridSetting.click();
-     //   BrowserUtils.sleep(2);
+        WebElement gridSetting = driver.findElement(By.xpath("//i[@class='fa-cog hide-text']"));
+        gridSetting.click();
+       BrowserUtils.sleep(2);
        // check Id
-      //  WebElement idCheck = driver.findElement(By.xpath("//input[@id='column-c111']"));
-      //  Assert.assertFalse(idCheck.isSelected());
+       WebElement idCheck = driver.findElement(By.xpath("//label[@for='column-c153']"));
+        Assert.assertFalse(idCheck.isSelected());
         // Is is selected now
-       // idCheck.click();
-       // Assert.assertTrue(idCheck.isSelected());
+        idCheck.click();
+        //Assert.assertTrue(idCheck.isSelected());
 
         // table
 
-        List<WebElement> tableList = new ArrayList<>(driver.findElements
-                (By.xpath("//table/tbody/tr/td")));
+       // List<WebElement> tableList = new ArrayList<>(driver.findElements
+         //       (By.xpath("//table/tbody/tr/td")));
 
 
 
@@ -70,25 +72,25 @@ public class TD_Reset {
 //
 //       }
 
-       for(int i = 0; i < tableList.size(); i++) {
-           if ((tableList.get(i).getText()).equals("A")) {
-               tableList.get(i).click();
-           }
-       }
+       //for(int i = 0; i < tableList.size(); i++) {
+       //    if ((tableList.get(i).getText()).equals("A")) {
+        //       tableList.get(i).click();
+        //   }
+      // }
 
 
         // close grid setting window
-      //  WebElement close = driver.findElement(By.xpath("//span[@class='close']"));
-     //   close.click();
+        WebElement close = driver.findElement(By.xpath("//span[@class='close']"));
+        close.click();
         // reset setting
         WebElement resetButton = driver.findElement(By.xpath("//a[@title='Reset']"));
         resetButton.click();
          //  check if Id checked
-       // gridSetting.click();
-       // Assert.assertFalse(idCheck.isSelected());
-      //  close.click();
+        gridSetting.click();
+        Assert.assertFalse(idCheck.isSelected());
+        close.click();
     }
-/**
+
     @Test
     public void Add_Event() throws InterruptedException {
         WebElement usernameBox = driver.findElement(By.xpath("//input[@id='prependedInput']"));
@@ -97,7 +99,7 @@ public class TD_Reset {
         passwordBox.sendKeys("UserUser123");
         WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
         loginButton.click();
-        Thread.sleep(2000);
+        BrowserUtils.sleep(2);
 
         // Hover over Fleet
         Actions action = new Actions(driver);
@@ -108,17 +110,19 @@ public class TD_Reset {
         WebElement vehiclesOption = driver.findElement(By.xpath("//*[@id=\"main-menu\"]/ul/li[1]/div/div/ul/li[3]/a/span"));
         vehiclesOption.click();
         // click on cars
-        Thread.sleep(2000);
+        BrowserUtils.sleep(2);
 
         WebElement cybertek123 = driver.findElement(By.xpath("(//td[@class='string-cell grid-cell grid-body-cell grid-body-cell-LicensePlate'])[1]"));
         cybertek123.click();
+        BrowserUtils.sleep(2);
         // add events
 
-        WebElement addEvents = driver.findElement(By.xpath("//a[@data-id='94']"));
+        WebElement addEvents = driver.findElement(By.xpath("//a[@class='btn icons-holder-text no-hash']"));
         addEvents.click();
+        BrowserUtils.sleep(2);
         // add title
 
-        WebElement titleBox = driver.findElement(By.xpath("(//input[@type='text'])[2]"));
+        WebElement titleBox = driver.findElement(By.xpath("(//input[@id='oro_calendar_event_form_title-uid-60c787c62d830']"));
         titleBox.sendKeys("BugKillers were here!!!");
         Thread.sleep(2000);
         driver.switchTo().frame(0);
@@ -131,8 +135,8 @@ public class TD_Reset {
     public void teardownClass(){
       // driver.close();
     }
-*/
-   /** @Test
+
+    @Test
     public void scenario (){
     WebElement usernameBox = driver.findElement(By.xpath("//input[@id='prependedInput']"));
     usernameBox.sendKeys("User174");
@@ -149,15 +153,23 @@ public class TD_Reset {
     WebElement vehiclesOption = driver.findElement(By.linkText("Vehicles"));
     vehiclesOption.click();
     BrowserUtils.sleep(2);
-    List<WebElement> carsList = new ArrayList<>(driver.findElements(By.xpath("//table/tbody/tr")));
-    for(WebElement each : carsList){
-        each.click();
-        BrowserUtils.sleep(2);
-        driver.navigate().back();
-        BrowserUtils.sleep(2);
+        // table
 
-    }
+         List<WebElement> tableList = new ArrayList<>(driver.findElements
+               (By.xpath("//table/tbody/tr/td")));
+
+
+
+       for(int i =0 ; i < tableList.size() ; i++){
+         WebElement carBox = driver.findElement(By.xpath("//tbody/tr["+(i+1)+"]"));
+           carBox.click();
+          BrowserUtils.sleep(2);
+         driver.navigate().back();
+
+
+
+     }
 
 }
-   */
+
 }

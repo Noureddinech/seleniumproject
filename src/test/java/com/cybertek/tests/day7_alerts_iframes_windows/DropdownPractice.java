@@ -18,6 +18,7 @@ public class DropdownPractice {
 
     @BeforeClass
     public void setUpClass(){
+
         driver = WebdriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
